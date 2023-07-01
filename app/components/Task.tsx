@@ -1,6 +1,6 @@
 "use client";
 import { ITask } from "@/types/task";
-import { editTodo } from "@/api";
+import { deleteTodo, editTodo } from "@/api";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Modal from "./Modal";
 import { FormEventHandler, useState } from "react";
@@ -22,8 +22,13 @@ const Task: React.FC<TaskProps> = ({ task }) => {
       text: taskToEdit,
       completed: false,
     }); // edit todo
-    setTaskToEdit(""); // reset new task value
     setOpenModalEdit(false); // close modal
+    router.refresh(); // refresh page
+  };
+
+  const handleDeleteTask = async (id: string) => {
+    await deleteTodo(id); // delete todo
+    setOpenModalDelete(false); // close modal
     router.refresh(); // refresh page
   };
 
@@ -49,13 +54,43 @@ const Task: React.FC<TaskProps> = ({ task }) => {
                 className="w-full input input-bordered"
                 id="editTask"
               />
-              <button type="submit" className="btn">
+              <button
+                type="submit"
+                className="text-white btn-primary btn hover:bg-blue-300"
+              >
                 Submit
               </button>
             </div>
           </form>
         </Modal>
-        <FiTrash2 cursor="pointer" size={25} className="text-red-500" />
+
+        <FiTrash2
+          onClick={() => setOpenModalDelete(true)}
+          cursor="pointer"
+          size={25}
+          className="text-red-500"
+        />
+        <Modal modalOpen={openModalDelete} setModalOpen={setOpenModalDelete}>
+          <h3 className="text-lg">
+            {" "}
+            Are you sure, you want to delete this task?
+          </h3>
+          <div className="justify-center modal-action">
+            <button
+              onClick={() => handleDeleteTask(task.id)}
+              type="submit"
+              className="text-white bg-red-600 btn hover:bg-red-300"
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => setOpenModalDelete(false)}
+              className="text-white btn-primary btn hover:bg-blue-300"
+            >
+              No
+            </button>
+          </div>
+        </Modal>
       </td>
     </tr>
   );

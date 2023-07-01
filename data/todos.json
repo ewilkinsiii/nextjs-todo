@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Create React App",
+      "text": "Create React JS App",
       "completed": false
     },
     {
@@ -18,26 +18,6 @@
     {
       "id": 4,
       "text": "Connect Frontend to Backend",
-      "completed": false
-    },
-    {
-      "id": "5",
-      "text": "test",
-      "completed": false
-    },
-    {
-      "id": "6",
-      "text": "test Rails deployment",
-      "completed": false
-    },
-    {
-      "id": "7",
-      "text": "Say Hi to Vicky",
-      "completed": false
-    },
-    {
-      "id": "fd68696d-7353-4372-aa0c-074d924b9eae",
-      "text": "take out trash",
       "completed": false
     },
     {
