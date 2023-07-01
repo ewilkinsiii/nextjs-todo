@@ -17,5 +17,17 @@ export const addTodo = async (todo: ITask): Promise<ITask> => {
     body: JSON.stringify(todo),
   });
   const newTodo = await res.json();
-  return todo;
+  return newTodo;
+};
+
+export const editTodo = async (todo: ITask): Promise<ITask> => {
+  const res = await fetch(`${baseUrl}/tasks/${todo.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(todo),
+  });
+  const updatedTodo = await res.json();
+  return updatedTodo;
 };
