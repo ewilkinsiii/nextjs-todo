@@ -27,7 +27,7 @@
     },
     {
       "id": "6",
-      "text": "test deployment",
+      "text": "test Rails deployment",
       "completed": false
     },
     {
@@ -38,6 +38,11 @@
     {
       "id": "fd68696d-7353-4372-aa0c-074d924b9eae",
       "text": "take out trash",
+      "completed": false
+    },
+    {
+      "id": "8f1da814-9926-4544-8de0-c2fb96eea5a5",
+      "text": "Deploy",
       "completed": false
     }
   ]

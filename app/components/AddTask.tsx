@@ -33,7 +33,7 @@ const AddTask = () => {
       </button>
 
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-        <form onSubmit={handleSubmitNewTodo}>
+        <form onSubmit={handleSubmitNewTodo} id="addTask">
           <h3 className="text-lg font-bold">Add new task</h3>
           <div className="modal-action">
             <input
@@ -42,6 +42,7 @@ const AddTask = () => {
               type="text"
               placeholder="Type here"
               className="w-full input input-bordered"
+              id="newTask"
             />
             <button type="submit" className="btn">
               Submit
